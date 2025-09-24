@@ -32,7 +32,7 @@ export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(heroData[0]);
 
   return (
-    <section className="max-w-full w-full h-dvh relative  overflow-hidden">
+    <section className="max-w-full w-full h-dvh  overflow-hidden">
       {/* Main Hero Image with Smooth Transition */}
       <div className="relative w-full h-full">
         <AnimatePresence>
@@ -62,7 +62,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="absolute bottom-[20px] max-w-[1500px] w-full text-white z-10 px-25 transition-all duration-300 delay-500"
+        className="absolute bottom-[20px] left-[100px]  max-w-[1500px] w-full text-white z-10 px-3 transition-all duration-300 delay-500 mx-auto"
       >
         <div className="z-10 relative flex justify-between items-end">
           <div className="">
@@ -71,7 +71,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }} // Move to top
               exit={{ opacity: 0, y: -10 }} // Exit upward
               transition={{ duration: 0.4, ease: "easeInOut",delay:0.6 }}
-              className="text-7xl mb-10"
+              className="text-5xl mb-10 max-w-[500px] overflow-hidden"
             >
               For better loading of first image
             </motion.h1>
