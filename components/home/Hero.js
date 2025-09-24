@@ -38,11 +38,11 @@ export default function Hero() {
         <AnimatePresence>
           <motion.div
             key={activeIndex.id} // Important: unique key for each image
-            initial={{ opacity: 0, scale: 1.1 }} // Start slightly zoomed out
+            initial={{ opacity: 0, scale: 1.2 }} // Start slightly zoomed out
             animate={{ opacity: 0.8, scale: 1 }} // End with normal scale
             exit={{ opacity: 0, scale: 1 }} // Exit smoothly
             transition={{
-              duration: 0.5, // Adjust timing (0.5s - 1s recommended)
+              duration: 0.7, // Adjust timing (0.5s - 1s recommended)
               ease: "easeInOut", // Smooth easing
             }}
             className="absolute inset-0"
@@ -69,10 +69,10 @@ export default function Hero() {
                   <motion.h2
                     className=" h-[20px]"
                     key={activeIndex.id} // Important: unique key for each number
-                    initial={{ opacity: 0, y: 30 }} // Start from bottom
+                    initial={{ opacity: 0, y: 10 }} // Start from bottom
                     animate={{ opacity: 1, y: 0 }} // Move to top
-                    exit={{ opacity: 0, y: -30 }} // Exit upward
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    exit={{ opacity: 0, y: -10 }} // Exit upward
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
                   >
                     {activeIndex.id}
                   </motion.h2>
