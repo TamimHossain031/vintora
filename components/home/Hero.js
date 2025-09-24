@@ -138,7 +138,7 @@ export default function Hero() {
             <h2 className="text-3xl font-bold">{activeIndex.title}</h2>
             <Link
               href="#"
-              className="text-sm bg-neutral-950 text-white py-2 px-4 rounded-md"
+              className="text-sm bg-white/50 backdrop-blur-2xl text-white py-2 px-4 rounded-md"
             >
               Explore More
             </Link>
