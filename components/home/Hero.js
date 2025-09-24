@@ -1,7 +1,12 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import Link from "next/link";
 
 const heroData = [
@@ -41,8 +46,11 @@ export default function Hero() {
   return (
     <AnimatePresence>
       <motion.section
+        initial={{ opacity: 0, scale: 1.2 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 1.2 }}
+        transition={{ duration: 0.7, ease: "easeInOut" }}
         style={{
-        
           opacity, // fade effect
           backgroundImage: `url(${activeIndex.imageUrl})`,
           backgroundSize: "cover",
