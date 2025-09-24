@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 
 const heroData = [
@@ -31,120 +31,117 @@ const heroData = [
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(heroData[0]);
 
+  // 👇 Track scroll position
+  const { scrollY } = useScroll();
+
+  // 👇 Create parallax + opacity transforms
+  const y = useTransform(scrollY, [0, 500], [0, -150]); // moves background up
+  const opacity = useTransform(scrollY, [0, 1000], [1, 0]); // fades out on scroll
+
   return (
-    <section className="max-w-full w-full h-dvh  overflow-hidden">
-      {/* Main Hero Image with Smooth Transition */}
-      <div className="relative w-full h-full">
-        <AnimatePresence>
-          <motion.div
-            key={activeIndex.id} // Important: unique key for each image
-            initial={{ opacity: 0, scale: 1.2 }} // Start slightly zoomed out
-            animate={{ opacity: 0.8, scale: 1 }} // End with normal scale
-            exit={{ opacity: 0, scale: 1 }} // Exit smoothly
-            transition={{
-              duration: 0.7, // Adjust timing (0.5s - 1s recommended)
-              ease: "easeInOut", // Smooth easing
-            }}
-            className="absolute inset-0"
-          >
-            <Image
-              src={activeIndex.imageUrl}
-              alt={`Hero Image - ${activeIndex.title}`}
-              fill
-              style={{ objectFit: "cover" }}
-              priority // For better loading of first image
-            />
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* Thumbnail Navigation */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="absolute bottom-[20px] left-[100px]  max-w-[1500px] w-full text-white z-10 px-3 transition-all duration-300 delay-500 mx-auto"
+    <AnimatePresence>
+      <motion.section
+        style={{
+        
+          opacity, // fade effect
+          backgroundImage: `url(${activeIndex.imageUrl})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+        }}
+        className="relative max-w-full w-full h-dvh bg-fixed overflow-hidden"
       >
-        <div className="z-10 relative flex justify-between items-end">
-          <div className="">
-            <motion.h1             
-              initial={{ opacity: 0, y: 10 }} // Start from bottom
-              animate={{ opacity: 1, y: 0 }} // Move to top
-              exit={{ opacity: 0, y: -10 }} // Exit upward
-              transition={{ duration: 0.4, ease: "easeInOut",delay:0.6 }}
-              className="text-5xl mb-10 max-w-[500px] overflow-hidden"
-            >
-              For better loading of first image
-            </motion.h1>
-            <motion.div
-              initial={{ opacity: 0,  }} // Start from bottom
-              animate={{ opacity: 1,  }} // Move to top
-              exit={{ opacity: 0, }} // Exit upward
-              transition={{ duration: 0.4, ease: "easeInOut", delay: 1 }}
-              className="flex gap-3 items-end overflow-hidden"
-            >
-              <div className="h-[25px] w-[50px] overflow-hidden">
-                <AnimatePresence mode="wait">
-                  <motion.h2
-                    className=" text-xl"
-                    key={activeIndex.id} // Important: unique key for each number
-                    initial={{ opacity: 0, y: 10 }} // Start from bottom
-                    animate={{ opacity: 1, y: 0 }} // Move to top
-                    exit={{ opacity: 0, y: -10 }} // Exit upward
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                  >
-                    {activeIndex.id}
-                  </motion.h2>
-                </AnimatePresence>
-              </div>
+        {/* Overlay content */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="absolute bottom-[20px] left-[100px] max-w-[1500px] w-full text-white z-10 px-3 transition-all duration-300 delay-500 mx-auto"
+        >
+          <div className="z-10 relative flex justify-between items-end">
+            <div>
+              <motion.h1
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4, ease: "easeInOut", delay: 0.6 }}
+                className="text-5xl mb-10 max-w-[500px] overflow-hidden"
+              >
+                For better loading of first image
+              </motion.h1>
 
-              <div className="flex gap-3">
-                {heroData.map((item, index) => (
-                  <motion.figure
-                    key={index}
-                    className={`w-[100px] h-[80px] cursor-pointer relative overflow-hidden rounded-md border-2 transition-all duration-300 ${
-                      activeIndex.title === item.title
-                        ? "border-white"
-                        : "border-white/50"
-                    }`}
-                    onMouseEnter={() => setActiveIndex(item)}
-                    // whileHover={{
+              {/* Thumbnails */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4, ease: "easeInOut", delay: 1 }}
+                className="flex gap-3 items-end overflow-hidden"
+              >
+                <div className="h-[25px] w-[50px] overflow-hidden">
+                  <AnimatePresence mode="wait">
+                    <motion.h2
+                      className=" text-xl"
+                      key={activeIndex.id}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                    >
+                      {activeIndex.id}
+                    </motion.h2>
+                  </AnimatePresence>
+                </div>
 
-                    // }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <Image
-                      src={item.imageUrl}
-                      alt={`Thumbnail - ${item.title}`}
-                      fill
-                      style={{ objectFit: "cover" }}
-                      className={`transition-all duration-300 ${
-                        activeIndex.title === item.title ? " scale-105" : ""
+                <div className="flex gap-3">
+                  {heroData.map((item, index) => (
+                    <motion.figure
+                      key={index}
+                      className={`w-[100px] h-[80px] cursor-pointer relative overflow-hidden rounded-md border-2 transition-all duration-300 ${
+                        activeIndex.title === item.title
+                          ? "border-white"
+                          : "border-white/50"
                       }`}
-                    />
-                  </motion.figure>
-                ))}
-              </div>
+                      onMouseEnter={() => setActiveIndex(item)}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 17,
+                      }}
+                    >
+                      <Image
+                        src={item.imageUrl}
+                        alt={`Thumbnail - ${item.title}`}
+                        fill
+                        style={{ objectFit: "cover" }}
+                        className={`transition-all duration-300 ${
+                          activeIndex.title === item.title ? " scale-105" : ""
+                        }`}
+                      />
+                    </motion.figure>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Right side text */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, ease: "easeInOut", delay: 1 }}
+              className="w-[500px] flex flex-col items-start gap-3"
+            >
+              <h2 className="text-3xl font-bold">{activeIndex.title}</h2>
+              <Link
+                href="#"
+                className="text-sm bg-white/50 backdrop-blur-2xl text-white py-2 px-4 rounded-md"
+              >
+                Explore More
+              </Link>
             </motion.div>
           </div>
-          <motion.div
-           initial={{ opacity: 0,  }} // Start from bottom
-              animate={{ opacity: 1, }} // Move to top
-              exit={{ opacity: 0, }} // Exit upward
-              transition={{ duration: 0.4, ease: "easeInOut", delay: 1 }}
-          
-          
-          className="w-[500px] flex flex-col items-start gap-3">
-            <h2 className="text-3xl font-bold">{activeIndex.title}</h2>
-            <Link
-              href="#"
-              className="text-sm bg-white/50 backdrop-blur-2xl text-white py-2 px-4 rounded-md"
-            >
-              Explore More
-            </Link>
-          </motion.div>
-        </div>
-      </motion.div>
-    </section>
+        </motion.div>
+      </motion.section>
+    </AnimatePresence>
   );
 }
