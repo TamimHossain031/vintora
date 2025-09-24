@@ -1,4 +1,4 @@
-
+import SmoothScrollProvider from "@/utils/SmoothScrollProvider";
 import "./globals.css";
 import Header from "@/components/common/Header";
 
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
         className={` antialiased`}
       >
         <Header />
-        <main >{children}</main>
+      <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
   );
