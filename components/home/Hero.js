@@ -59,15 +59,33 @@ export default function Hero() {
       </div>
 
       {/* Thumbnail Navigation */}
-      <div className="absolute bottom-[20px] max-w-[1300px] w-full text-white z-10 px-25">
-        <div className="z-10 relative flex justify-between">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="absolute bottom-[20px] max-w-[1500px] w-full text-white z-10 px-25 transition-all duration-300 delay-500"
+      >
+        <div className="z-10 relative flex justify-between items-end">
           <div className="">
-            <h1>For better loading of first image</h1>
-            <div className="flex gap-3 items-end overflow-hidden">
-              <div className="h-[20px] overflow-hidden">
+            <motion.h1             
+              initial={{ opacity: 0, y: 10 }} // Start from bottom
+              animate={{ opacity: 1, y: 0 }} // Move to top
+              exit={{ opacity: 0, y: -10 }} // Exit upward
+              transition={{ duration: 0.4, ease: "easeInOut",delay:0.6 }}
+              className="text-7xl mb-10"
+            >
+              For better loading of first image
+            </motion.h1>
+            <motion.div
+              initial={{ opacity: 0,  }} // Start from bottom
+              animate={{ opacity: 1,  }} // Move to top
+              exit={{ opacity: 0, }} // Exit upward
+              transition={{ duration: 0.4, ease: "easeInOut", delay: 1 }}
+              className="flex gap-3 items-end overflow-hidden"
+            >
+              <div className="h-[25px] w-[50px] overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.h2
-                    className=" h-[20px]"
+                    className=" text-xl"
                     key={activeIndex.id} // Important: unique key for each number
                     initial={{ opacity: 0, y: 10 }} // Start from bottom
                     animate={{ opacity: 1, y: 0 }} // Move to top
@@ -107,9 +125,16 @@ export default function Hero() {
                   </motion.figure>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
-          <div className="w-[300px] flex flex-col items-start gap-3">
+          <motion.div
+           initial={{ opacity: 0,  }} // Start from bottom
+              animate={{ opacity: 1, }} // Move to top
+              exit={{ opacity: 0, }} // Exit upward
+              transition={{ duration: 0.4, ease: "easeInOut", delay: 1 }}
+          
+          
+          className="w-[500px] flex flex-col items-start gap-3">
             <h2 className="text-3xl font-bold">{activeIndex.title}</h2>
             <Link
               href="#"
@@ -117,9 +142,9 @@ export default function Hero() {
             >
               Explore More
             </Link>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
