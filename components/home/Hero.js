@@ -65,7 +65,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="absolute bottom-[20px] left-[100px] max-w-[1500px] w-full text-white z-10 px-3 transition-all duration-300 delay-500 mx-auto"
+            className="absolute bottom-[20px] left-[200px] max-w-[1500px] w-full text-white z-10 px-3 transition-all duration-300 delay-500 mx-auto"
           >
             <div className="z-10 relative flex justify-between items-end">
               <div>
@@ -74,7 +74,7 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.4, ease: "easeInOut", delay: 0.6 }}
-                  className="text-5xl mb-10 max-w-[500px] overflow-hidden"
+                  className="text-[72px] font-medium leading-[72px] mb-15 max-w-[500px] overflow-hidden"
                 >
                   For better loading of first image
                 </motion.h1>
