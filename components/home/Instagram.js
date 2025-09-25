@@ -18,7 +18,7 @@ export default function Instagram() {
           .fill()
           .map((_, i) => (
             <div
-              className={`w-[220px] bg-red-300 mr-3 align-top ${
+              className={`w-[220px] bg-red-300 mr-3 rounded-md ${
                 i % 2 === 0 ? "h-[330px]" : "h-[261px]"
               }`}
               key={i}

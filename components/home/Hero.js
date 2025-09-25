@@ -45,7 +45,7 @@ export default function Hero() {
 
   return (
     <AnimatePresence>
-      <section className="max-w-full w-full h-dvh overflow-hidden relative bg-[#000]">
+      <section className="max-w-full w-full h-dvh overflow-hidden relative bg-[#1a1a1a]">
         <motion.section
           initial={{ opacity: 0, scale: 1.2 }}
           animate={{ opacity: 1, scale: 1 }}
