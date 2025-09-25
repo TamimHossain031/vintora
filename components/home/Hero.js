@@ -45,7 +45,8 @@ export default function Hero() {
 
   return (
     <AnimatePresence>
-      <motion.section
+      <section className="max-w-full w-full h-dvh overflow-hidden relative">
+  <motion.section
         initial={{ opacity: 0, scale: 1.2 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 1.2 }}
@@ -58,7 +59,7 @@ export default function Hero() {
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed",
         }}
-        className="relative max-w-full w-full h-dvh bg-fixed overflow-hidden"
+        className="relative w-full h-full bg-fixed overflow-hidden"
       >
         {/* Overlay content */}
         <motion.div
@@ -150,6 +151,9 @@ export default function Hero() {
           </div>
         </motion.div>
       </motion.section>
+
+      </section>
+    
     </AnimatePresence>
   );
 }

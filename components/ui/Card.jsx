@@ -1,9 +1,11 @@
 "use client";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 export default function Card() {
   return (
     <AnimatePresence>
+        <Link href={'/'}>
       <motion.div
         initial={{ opacity: 0, scale: 1 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -23,6 +25,7 @@ export default function Card() {
           <h5 className="text-base">$100</h5>
         </figcaption>
       </motion.div>
+      </Link>
     </AnimatePresence>
   );
 }
