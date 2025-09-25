@@ -40,6 +40,8 @@ body {
   }
   p {
     color: #969696;
+    max-width:350px;
+    margin-inline:auto;
   }
 }
 
