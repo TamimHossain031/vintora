@@ -26,3 +26,9 @@ body {
   color: var(--foreground);
   font-family: "Alan Sans", sans-serif;
 }
+
+.container{
+  max-width:1380px;
+  width:100%;
+  margin-inline:auto;
+}
