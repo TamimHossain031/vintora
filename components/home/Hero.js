@@ -143,7 +143,7 @@ export default function Hero() {
                 <h2 className="text-3xl font-bold">{activeIndex.title}</h2>
                 <Link
                   href="#"
-                  className="text-sm bg-[#ebebeb94] backdrop-blur-[10px] text-button py-2 px-4 rounded-md"
+                  className="primary-btn"
                 >
                   Explore More
                 </Link>

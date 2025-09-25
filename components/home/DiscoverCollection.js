@@ -14,7 +14,7 @@ export default function DiscoverCollection() {
             </p>
             <Link
               href={"/"}
-              className="text-sm font-medium px-5 py-[12px] bg-[#d1d1d199] backdrop-blur-[10px] inline-block rounded mt-4"
+              className="secondary-btn"
             >
               Discover Collection
             </Link>
@@ -40,7 +40,7 @@ export default function DiscoverCollection() {
             </p>
             <Link
               href={"/"}
-              className="text-sm font-medium px-5 py-[12px] bg-[#d1d1d199] backdrop-blur-[10px] inline-block rounded mt-4"
+              className="text-sm font-medium px-5 py-[12px] bg-[#d1d1d199] backdrop-blur-[10px] inline-block rounded mt-4 hover:bg-[#33383C] transition-all duration-300 hover:text-[#f8f8f8]"
             >
               Discover Collection
             </Link>

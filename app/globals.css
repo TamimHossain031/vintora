@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #F8F8F8;
+  --background: #f8f8f8;
   --foreground: #33383c;
 }
 
@@ -11,12 +11,12 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-button:var(--foreground)
+  --color-button: var(--foreground);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #F8F8F8;
+    --background: #f8f8f8;
     --foreground: #33383c;
   }
 }
@@ -27,8 +27,38 @@ body {
   font-family: "Alan Sans", sans-serif;
 }
 
-.container{
-  max-width:1380px;
-  width:100%;
-  margin-inline:auto;
+.container {
+  max-width: 1380px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.title {
+  h2 {
+    font-size: 40px;
+    font-weight: 500;
+  }
+  p {
+    color: #969696;
+  }
+}
+
+.primary-btn {
+  @apply inline-block 
+  text-sm 
+  font-medium 
+  bg-gray-100/60 
+  backdrop-blur-md 
+  text-foreground 
+  px-4 py-3 
+  rounded-lg 
+  transition-all 
+  duration-300 
+  ease-in-out 
+  mt-2 
+  hover:bg-gray-400/50;
+}
+
+.secondary-btn {
+  @apply text-sm font-medium px-5 py-[12px] bg-[#d1d1d199] backdrop-blur-[10px] inline-block rounded mt-4 hover:bg-[#33383C] transition-all duration-300 hover:text-[#f8f8f8];
 }
