@@ -1,6 +1,7 @@
 'use client'
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
+import Image from "next/image";
 export default function Instagram() {
   return (
     <motion.section
@@ -18,11 +19,13 @@ export default function Instagram() {
           .fill()
           .map((_, i) => (
             <div
-              className={`w-[220px] bg-red-300 mr-3 rounded-md ${
+              className={`w-[220px] bg-red-300 mr-3 rounded-md relative overflow-hidden ${
                 i % 2 === 0 ? "h-[330px]" : "h-[261px]"
               }`}
               key={i}
-            ></div>
+            >
+              <Image src="/hero/1.jpg" fill alt="hero" className="object-cover object-center" />
+            </div>
           ))}
       </Marquee>
     </motion.section>
