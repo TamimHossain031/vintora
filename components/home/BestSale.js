@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function BestSale() {
   return (
-    <section className='w-full h-dvh pt-[150px] mb-[150px] relative '>
+    <section className='w-full pt-[150px] mb-[150px] '>
        <nav className='max-w-[700px] mx-auto px-4 flex justify-between w-full py-2 bg-[#ebebeb94] backdrop-blur-[10px] rounded sticky top-[100px] z-50 '>
             <h4>Best Saler</h4>    
             <Link href={'/'} className="text-base opacity-50 hover:opacity-100 transition-all duration-300">See All</Link>        
