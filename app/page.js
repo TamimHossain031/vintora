@@ -6,6 +6,7 @@ import New from "@/components/home/New";
 import DiscoverCollection from "@/components/home/DiscoverCollection";
 import CustomerSay from "@/components/home/CustomerSay";
 import FasionStyle from "@/components/home/FasionStyle";
+import ShopWithUs from "@/components/home/ShopWithUs";
 export default function Home() {
   return (
  <div>
@@ -16,6 +17,7 @@ export default function Home() {
     <DiscoverCollection />
     <CustomerSay />
     <FasionStyle />
+    <ShopWithUs />
  </div>
   );
 }
