@@ -1,7 +1,9 @@
+'use client'
 import Instagram from "@/components/home/Instagram";
 import ShopWithUs from "@/components/home/ShopWithUs";
+import PageHeader from "@/components/ui/PageHeader";
 import SocialLinks from "@/components/ui/SocialLinks";
-import StickyScroll from "@/components/ui/StickyScroll";
+import {motion} from "framer-motion"
 import Image from "next/image";
 import Link from "next/link";
 const links = [
@@ -9,7 +11,6 @@ const links = [
     link: "https://www.facebook.com/",
     label: "Facebook",
   },
-
   {
     link: "https://www.twitter.com/",
     label: "Twitter (X)",
@@ -18,18 +19,22 @@ const links = [
 export default function page() {
   return (
     <section className="pt-[200px] ">
-      <h1 className="text-[72px] text-center">About Véon</h1>
-      <p className="text-center">
-        Where timeless elegance meets modern sophistication
-      </p>
-      <figure className="aspect-[1380/786] mx-auto relative max-w-[1380px] rounded-lg overflow-hidden">
+
+        <PageHeader title="About Véon" subTitle="Where timeless elegance meets modern sophistication" />
+     
+      <motion.figure 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+
+      className="aspect-[1380/786] mx-auto relative max-w-[1380px] rounded-lg overflow-hidden">
         <Image
           src="/hero/1.jpg"
           fill
           alt="hero"
           className="object-cover object-center"
         />
-      </figure>
+      </motion.figure>
 
       <h3 className="text-[28px] max-w-[700px] w-full mx-auto pt-[150px] pb-[30px]">
         Véon is more than just fashion—it’s a statement of timeless elegance and
@@ -46,8 +51,6 @@ export default function page() {
       </div>
 
      
-        {/* <StickyScroll />
-  */}
 
       <div className="px-[30px] py-[150px] bg-[#f0f0f0] mt-[150px]">
         <div className="title text-center">
@@ -61,7 +64,11 @@ export default function page() {
           {Array(6)
             .fill()
             .map((_, i) => (
-              <div key={i}>
+              <motion.div
+              initial={{ opacity: 0}}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5}}
+              key={i}>
                 <div className="relative w-full min-h-[634px] h-full overflow-hidden group rounded">
                   <Image
                     src="/hero/1.jpg"
@@ -82,7 +89,7 @@ export default function page() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
         </div>
       </div>
