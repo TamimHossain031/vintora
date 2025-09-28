@@ -1,6 +1,7 @@
 import Instagram from "@/components/home/Instagram";
 import ShopWithUs from "@/components/home/ShopWithUs";
 import SocialLinks from "@/components/ui/SocialLinks";
+import StickyScroll from "@/components/ui/StickyScroll";
 import Image from "next/image";
 import Link from "next/link";
 const links = [
@@ -43,6 +44,10 @@ export default function page() {
           Shop Clothes Now
         </Link>
       </div>
+
+     
+        {/* <StickyScroll />
+  */}
 
       <div className="px-[30px] py-[150px] bg-[#f0f0f0] mt-[150px]">
         <div className="title text-center">
