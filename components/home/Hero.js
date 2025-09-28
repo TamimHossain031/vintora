@@ -65,9 +65,9 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="absolute bottom-[20px] left-[200px] max-w-[1500px] w-full text-white z-10 px-3 transition-all duration-300 delay-500 mx-auto"
+            className="absolute bottom-[20px] left-0 w-full text-white z-10 px-3 transition-all duration-300 delay-500 mx-auto"
           >
-            <div className="z-10 relative flex justify-between items-end">
+            <div className="z-10 relative flex justify-between items-end max-w-[1440px] w-full mx-auto">
               <div>
                 <motion.h1
                   initial={{ opacity: 0, y: 10 }}
