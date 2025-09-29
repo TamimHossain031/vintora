@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={` antialiased w-full overflow-hidden`}
+        className={` antialiased w-full`}
       >
         <Header />
       <SmoothScrollProvider>
