@@ -14,7 +14,6 @@ export default function Header() {
                 <li className='px-4'><Link href="/contact">Contact</Link></li>
                 <li className='px-4'><button>Search</button></li>
                 <li className='px-4'><button>Bag <span className='text-md border-[1px] rounded-full px-2 py-1'>0</span></button></li>
-
             </ul>
         </nav>
     </div>
