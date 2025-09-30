@@ -4,6 +4,7 @@ import Header from "@/components/common/Header";
 
 import { AppProvider } from "@/contexts";
 import Footer from "@/components/common/Footer";
+import Modal from "@/components/modal/Modal";
 
 export const metadata = {
   title: "Vintora",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
         <AppProvider>
           <Header />
           <SmoothScrollProvider>{children}</SmoothScrollProvider>
+           <Modal />
           <Footer />
         </AppProvider>
       </body>

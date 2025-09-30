@@ -1,9 +1,8 @@
 'use client'
 import Link from "next/link";
-import Search from "./Search";
-import { useState } from "react";
+import { useApp } from '../../hooks/useApp';
 export default function Navigation() {
-  
+    const {  showModal } = useApp();
   return (
     <>
      <nav className="pl-4 flex justify-between w-full py-2 bg-[#ebebeb94] backdrop-blur-[10px] rounded">
@@ -22,7 +21,7 @@ export default function Navigation() {
               <Link href="/contact">Contact</Link>
             </li>
             <li className="px-4">
-              <button onClick={() => setIsOpen(!isOpen)}>Search</button>
+              <button onClick={() => showModal('search')}>Search</button>
             </li>
             <li className="px-4">
               <button>

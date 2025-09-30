@@ -8,7 +8,7 @@ export const useApp = () => {
     loading: state.loading,
     notifications: state.notifications,
     modal: state.modal,
-    
+        
     // Actions
     setLoading: actions.setLoading,
     showNotification: actions.addNotification,
