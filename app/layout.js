@@ -2,6 +2,8 @@ import SmoothScrollProvider from "@/utils/SmoothScrollProvider";
 import "./globals.css";
 import Header from "@/components/common/Header";
 
+import { AppProvider } from "@/contexts";
+import Footer from "@/components/common/Footer";
 
 export const metadata = {
   title: "Vintora",
@@ -12,9 +14,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`antialiased w-full`}>
-        <Header />
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>   
-        
+        <AppProvider>
+          <Header />
+          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+          <Footer />
+        </AppProvider>
       </body>
     </html>
   );
