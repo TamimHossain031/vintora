@@ -20,8 +20,7 @@ export default function Home() {
     <CustomerSay />
     <FasionStyle />
     <ShopWithUs />
-    <Instagram />
-    <Footer />
+    <Instagram />   
  </div>
   );
 }

@@ -7,7 +7,7 @@ export default function page() {
   return (
     <section className="w-full pt-[200px]">
       <PageHeader
-        title="Fashion Blogs"
+        title="Contact Us"
         subTitle="Where timeless elegance meets modern sophistication"
       />
       <motion.div
