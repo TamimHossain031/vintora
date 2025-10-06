@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Card() {
   return (
     <AnimatePresence>
-      <Link href={"/"}>
+      <Link href={"/shop/tamim"}>
         <motion.div
           initial={{ opacity: 0, scale: 1 }}
           whileInView={{ opacity: 1, scale: 1 }}
