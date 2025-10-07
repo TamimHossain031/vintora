@@ -1,6 +1,6 @@
 
 import ImagaView from "@/components/singleProduct/ImagaView";
-import ProductBuy from "@/components/singleProduct/productBuy";
+
 
 
 export default async function Page({ params }) {
@@ -15,7 +15,7 @@ export default async function Page({ params }) {
       <ImagaView productImages={productImage} />
 
       {/* Right sticky section */}
-       <ProductBuy />
+     
     </div>
   );
 }
