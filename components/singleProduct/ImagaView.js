@@ -2,9 +2,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 export default function ImagaView({productImages}) {
-
+    const [currentImage, setCurrentImage] = useState(0);
       const handleScroll = useCallback((e, id) => {
     e.preventDefault();
     const target = document.getElementById(id);
@@ -39,7 +39,10 @@ export default function ImagaView({productImages}) {
           {productImages.map((image, i) => (
             <div
               key={i}
-              className="w-full aspect-[56/70] overflow-hidden rounded"
+              className={`w-full aspect-[56/70] overflow-hidden rounded p-[2px] ${
+                currentImage === i ? "border-1 border-gray-200" : ""
+              }`}
+              onClick={() => setCurrentImage(i)}
             >
               <Link
                 href={`#image-${i}`}

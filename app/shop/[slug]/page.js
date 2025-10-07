@@ -11,7 +11,7 @@ export default async function Page({ params }) {
 
 
   return (
-    <div className="w-full flex gap-[10px]">
+    <div className="w-full flex gap-[10px]"> 
       {/* Left scrollable images */}
       <ImagaView productImages={productImage} />
 
