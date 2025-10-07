@@ -7,7 +7,7 @@ export default function ProductBuy() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.7, ease: "easeInOut" }}
         exit={{ opacity: 0 }}
-        className="w-1/2 h-fit bg-red-300 sticky top-[150px] p-5 rounded"
+        className="w-1/2 h-fit bg-[#f0f0f0] sticky top-[150px] p-5 rounded"
       >
         <p className="text-xl font-semibold">tamim</p>
       </motion.div>
