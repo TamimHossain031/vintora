@@ -1,7 +1,6 @@
 
 import ImagaView from "@/components/singleProduct/ImagaView";
-import Image from "next/image";
-import Link from "next/link";
+import ProductBuy from "@/components/singleProduct/productBuy";
 
 
 export default async function Page({ params }) {
@@ -16,9 +15,7 @@ export default async function Page({ params }) {
       <ImagaView productImages={productImage} />
 
       {/* Right sticky section */}
-      <div className="w-1/2 h-fit bg-red-300 sticky top-[150px] p-4">
-        <p className="text-xl font-semibold">tamim</p>
-      </div>
+       <ProductBuy />
     </div>
   );
 }

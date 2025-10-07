@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { useCallback, useState } from "react";
+import {motion} from "framer-motion"
 export default function ImagaView({productImages}) {
     const [currentImage, setCurrentImage] = useState(0);
       const handleScroll = useCallback((e, id) => {
@@ -16,7 +17,12 @@ export default function ImagaView({productImages}) {
     }
   }, []);
   return (
-    <div className="w-1/2 grid gap-[10px] relative">
+    <motion.div 
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 0.7, ease: "easeInOut" }}
+    exit={{ opacity: 0 }}
+    className="w-1/2 grid gap-[10px] relative">
         {productImages.map((image, i) => (
           <div
             key={i}
@@ -60,6 +66,6 @@ export default function ImagaView({productImages}) {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
   )
 }
