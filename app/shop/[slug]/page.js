@@ -1,5 +1,6 @@
 
 import ImagaView from "@/components/singleProduct/ImagaView";
+import ProductDesc from "@/components/singleProduct/ProductDesc";
 
 
 
@@ -15,7 +16,7 @@ export default async function Page({ params }) {
       <ImagaView productImages={productImage} />
 
       {/* Right sticky section */}
-     
+      <ProductDesc />
     </div>
   );
 }
