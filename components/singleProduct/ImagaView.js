@@ -31,7 +31,7 @@ export default function ImagaView({ productImages }) {
         >
           <figure className="w-full h-full relative group-hover:scale-105 transition-all duration-500">
             <Image
-              src={image}
+              src={image.src}
               fill
               alt="hero"
               className="object-cover object-center rounded"
@@ -56,7 +56,7 @@ export default function ImagaView({ productImages }) {
             >
               <figure className="w-full h-full relative hover:scale-105 transition-all duration-500">
                 <Image
-                  src={image}
+                  src={image.src}
                   fill
                   alt="hero"
                   className="object-cover object-center rounded"

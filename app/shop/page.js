@@ -4,7 +4,7 @@ import {getAllWooCommerceProducts} from "@/api/apiFetch";
 
 
 export const metadata = {
-  title: 'All Products | Your Store',
+  title: 'All Products',
   description: 'Browse our complete collection of products',
   openGraph: {
     title: 'All Products',
@@ -15,9 +15,9 @@ export const metadata = {
 
 export default async function page() {
 
-  const products = await getAllWooCommerceProducts(9, 1);
+  const products = await getAllWooCommerceProducts(10, 1);
 
-  console.log("All Products:", products);
+
 
 
   return (

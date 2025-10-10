@@ -2,6 +2,7 @@
 
 const WORDPRESS_API_URL = process.env.WORDPRESS_API_URL;
 const WOOCOMMERCE_API_URL = process.env.WOOCOMMERCE_API_URL;
+const WOOCOMMERCE_API_URL_V2 = process.env.WOOCOMMERCE_API_URL_V2;
 
 // WooCommerce authentication (if needed)
 const WC_CONSUMER_KEY = process.env.WC_CONSUMER_KEY;
@@ -116,9 +117,10 @@ export async function getAllProductsPaginated() {
 export async function getProductBySlug(slug) {
   try {
     const products = await fetchAPI(
-      `${WORDPRESS_API_URL}/product?slug=${slug}`
+      `${WOOCOMMERCE_API_URL_V2}/product/${slug}`
     );
-    return products[0] || null;
+    console.log("Fetched product by slug:", products);
+    return products || null;
   } catch (error) {
     console.error('Error fetching product:', error);
     return null;
