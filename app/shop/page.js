@@ -17,6 +17,8 @@ export default async function page() {
 
   const products = await getAllWooCommerceProducts(9, 1);
 
+  console.log("All Products:", products);
+
 
   return (
     <section className="w-full pt-[100px] mb-[150px] ">
@@ -35,9 +37,6 @@ export default async function page() {
       <div className="max-w-[1380px] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[10px] mt-5">
         {products.length > 0 ? products.map((product,i) => (
            <Card key={i} product={product} />)) : <p>No products found.</p>}
-         
-           
-          
       </div>
     </section>
   );

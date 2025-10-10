@@ -116,7 +116,7 @@ export async function getAllProductsPaginated() {
 export async function getProductBySlug(slug) {
   try {
     const products = await fetchAPI(
-      `${WORDPRESS_API_URL}/product?slug=${slug}&_embed`
+      `${WORDPRESS_API_URL}/product?slug=${slug}`
     );
     return products[0] || null;
   } catch (error) {

@@ -26,8 +26,8 @@ export default function Card({ product }) {
             />
           </figure>
           <figcaption className="mt-2">
-            <p className="text-sm font-medium">{product.name}</p>
-            <h5 className="text-base font-medium">{product.price}</h5>
+            <p className="text-sm font-medium line-clamp-2">{product.name}</p>
+            <h5 className="text-base font-medium">{product.price} ৳</h5>
           </figcaption>
         </motion.div>
       </Link>
