@@ -16,9 +16,10 @@ export const metadata = {
 export default async function page({params}) {
 
 const resolvedParams = await params;
+
 const categoryId = resolvedParams.id?.[1] || null;
 
-  console.log("Category ID:", categoryId);
+
 
   // Fetch products based on category
   const products = categoryId ? await getProductsByCategory(categoryId) : await getAllWooCommerceProducts(10, 1);

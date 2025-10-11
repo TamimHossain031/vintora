@@ -19,7 +19,7 @@ export default async function Page({ params }) {
       <ImagaView productImages={product.images} />
 
       {/* Right sticky section */}
-      <ProductDesc />
+      <ProductDesc product={product} />
     </div>
   );
 }
