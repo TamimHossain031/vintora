@@ -7,12 +7,9 @@ export default async function Page({ params }) {
 
   const product = await getProductBySlug(slug);
 
-  console.log("product", product);
   if (!product) {
     return <p>Product not found.</p>;
   }
-
-  console.log("Single Product:", product);
 
   const productImage = ["/hero/1.jpg", "/hero/2.jpg", "/hero/3.jpg"];
 

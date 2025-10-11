@@ -36,20 +36,6 @@ async function fetchAPI(endpoint, options = {}) {
   }
 }
 
-/**
- * Method 1: Fetch Custom Post Type Products (if using custom post type)
- */
-export async function getAllProducts(perPage = 100) {
-  try {
-    const products = await fetchAPI(
-      `${WORDPRESS_API_URL}/product?_embed&per_page=${perPage}`
-    );
-    return products;
-  } catch (error) {
-    console.error('Error fetching products:', error);
-    return [];
-  }
-}
 
 /**
  * Method 2: Fetch WooCommerce Products (if using WooCommerce)
@@ -119,7 +105,7 @@ export async function getProductBySlug(slug) {
     const products = await fetchAPI(
       `${WOOCOMMERCE_API_URL_V2}/product/${slug}`
     );
-    console.log("Fetched product by slug:", products);
+    
     return products || null;
   } catch (error) {
     console.error('Error fetching product:', error);
@@ -134,13 +120,10 @@ export async function getProductsByCategory(categoryId, perPage = 100) {
   try {
     const url = new URL(`${WOOCOMMERCE_API_URL}/products`);
     url.searchParams.append('category', categoryId);
-    url.searchParams.append('per_page', perPage);
-    
     if (WC_CONSUMER_KEY && WC_CONSUMER_SECRET) {
       url.searchParams.append('consumer_key', WC_CONSUMER_KEY);
       url.searchParams.append('consumer_secret', WC_CONSUMER_SECRET);
     }
-
     const products = await fetchAPI(url.toString());
     return products;
   } catch (error) {
@@ -154,13 +137,14 @@ export async function getProductsByCategory(categoryId, perPage = 100) {
  */
 export async function getProductCategories() {
   try {
-    const url = new URL(`${WOOCOMMERCE_API_URL}/products/categories`);
+    const url = new URL(`${WOOCOMMERCE_API_URL_V2}/product-categories`);
+    url.searchParams.append('hide_empty', 0);
     url.searchParams.append('per_page', 100);
     
-    if (WC_CONSUMER_KEY && WC_CONSUMER_SECRET) {
-      url.searchParams.append('consumer_key', WC_CONSUMER_KEY);
-      url.searchParams.append('consumer_secret', WC_CONSUMER_SECRET);
-    }
+    // if (WC_CONSUMER_KEY && WC_CONSUMER_SECRET) {
+    //   url.searchParams.append('consumer_key', WC_CONSUMER_KEY);
+    //   url.searchParams.append('consumer_secret', WC_CONSUMER_SECRET);
+    // }
 
     const categories = await fetchAPI(url.toString());
     return categories;
